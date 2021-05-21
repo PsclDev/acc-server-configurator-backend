@@ -1,0 +1,15 @@
+{
+    "serverName": "omegabedronka",
+    "adminPassword": "OliCloud",
+    "carGroup": "FreeForAll",
+    "trackMedalsRequirement": 0,
+    "safetyRatingRequirement": 75,
+    "racecraftRatingRequirement": -1,
+    "password": "",
+    "maxCarSlots": 32,
+    "spectatorPassword": "",
+    "shortFormationLap": 1,
+    "dumpEntryList": 0,
+    "formationLapType": 3,
+    "configVersion": 1
+}
