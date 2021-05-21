@@ -1,0 +1,95 @@
+{
+    "sessionType": "R",
+    "trackName": "silverstone",
+    "sessionIndex": 1,
+    "sessionResult": {
+        "bestlap": 117915,
+        "bestSplits": [
+            34770,
+            49359,
+            33258
+        ],
+        "isWetSession": 0,
+        "type": 1,
+        "leaderBoardLines": [
+            {
+                "car": {
+                    "carId": 1073,
+                    "raceNumber": 912,
+                    "carModel": 0,
+                    "cupCategory": 0,
+                    "teamName": "",
+                    "drivers": [
+                        {
+                            "firstName": "Somebody",
+                            "lastName": "Else",
+                            "shortName": "SOE",
+                            "playerId": "S76561191111111111"
+                        }
+                    ]
+                },
+                "currentDriver": {
+                    "firstName": "Somebody",
+                    "lastName": "Else",
+                    "shortName": "SOE",
+                    "playerId": "S76561191111111111"
+                },
+                "currentDriverIndex": 0,
+                "timing": {
+                    "lastLap": 119223,
+                    "lastSplits": [
+                        35286,
+                        50178,
+                        33759
+                    ],
+                    "bestLap": 118404,
+                    "bestSplits": [
+                        35265,
+                        49659,
+                        33438
+                    ],
+                    "totalTime": 719894,
+                    "lapCount": 6,
+                    "lastSplitId": 0
+                },
+                "missingMandatoryPitstop": 0,
+                "driverTotalTimes": [
+                    0.0
+                ]
+            }
+        ]
+    },
+    "laps": [
+        {
+            "carId": 1073,
+            "driverIndex": 0,
+            "laptime": 125511,
+            "isValidForBest": true,
+            "splits": [
+                40197,
+                51537,
+                33777
+            ]
+        }
+    ],
+    "penalties": [
+        {
+            "carId": 1079,
+            "driverIndex": 0,
+            "reason": "Cutting",
+            "penalty": "DriveThrough",
+            "penaltyValue": 3,
+            "violationInLap": 0,
+            "clearedInLap": 1
+        },
+        {
+            "carId": 1081,
+            "driverIndex": 0,
+            "reason": "PitSpeeding",
+            "penalty": "StopAndGo_20",
+            "penaltyValue": 20,
+            "violationInLap": 4,
+            "clearedInLap": 5
+        }
+    ]
+}
