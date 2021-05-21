@@ -1,0 +1,81 @@
+{
+    "eventRules": [
+        {
+            "name": "qualifyStandingType",
+            "description": "1 = fastest lap, 2 = average lap (running Endurance mode for multiple Q sessions) . Use 1, averaging Qualy is not yet officially supported",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "pitWindowLengthSec",
+            "description": "Defines a pit window at the middle of the race. Obviously covers the Sprint series format. -1 will disable the pit window. Use this combined with a mandatoryPitstopCount = 1.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "driverStintTimeSec",
+            "description": "Defines the maximum time a driver can stay out without getting a penalty. Can be used to balance fuel efficient cars in endurance races. The stint time resets in the pitlane, no real stop is required.<br>-1 will disable the stint times. driverStintTimeSec and maxTotalDrivingTime are interdependent features, make sure both are set or off.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "mandatoryPitstopCount",
+            "description": "Defines the basic mandatory pit stops. If the value is greater zero, any car that did not execute the mandatory pitstops will be disqualified at the end of the race. The necessary actions can be further configured using the “isMandatoryPitstopXYRequired” properties. A value of zero disables the feature.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "maxTotalDrivingTime",
+            "description": "Restricts the maximum driving time for a single driver. Is only useful for driver swap situations and allows to enforce a minimum driving time for each driver (IRL this is used to make sure mixed teams like Pro/Am have a fair distributions of the slower drivers). -1 disables the feature.<br>driverStintTimeSec and maxTotalDrivingTime are interdependent features, make sure both are set or off.<br>Will set the maximum driving time for the team size defined by “maxDriversCount”, always make sure both are set.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "maxDriversCount",
+            "description": "In driver swap situations, set this to the maximum number of drivers on a car. When an entry has fewer drivers than maxDriversCount, maxTotalDrivingTime is automatically compensated so that those “smaller“ entries are also able to complete the race<br>Example: 3H race length, 65 minutes driverStintTimeSec and 65 minutes maxTotalDrivingTime will result in 65 minutes of maxTotalDrivingTime for entries of 3 and 105 (!) minutes for entries of 2.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "isRefuellingAllowedInRace",
+            "description": "Defines if refuelling is allowed during the race pitstops.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "isRefuellingTimeFixed",
+            "description": "If set to true, any refuelling will take the same amount of time. If turned off, refuelling will consume time linear to the amount refuelled. Very useful setting to balance fuel efficient cars, especially if combined with other features.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "isMandatoryPitstopRefuellingRequired",
+            "description": "Defines if a mandatory pitstop requires refuelling.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "isMandatoryPitstopTyreChangeRequired",
+            "description": "Defines if a mandatory pitstop requires changing tyres.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "isMandatoryPitstopSwapDriverRequired",
+            "description": "Defines if a mandatory pitstop requires a driver swap. Will only be effective for cars in driver swap situations; even in a mixed field this will be skipped for cars with a team size of 1 driver.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        }
+    ]
+}

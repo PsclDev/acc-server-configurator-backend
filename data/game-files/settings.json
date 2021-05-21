@@ -1,0 +1,123 @@
+{
+  "settings": [
+    {
+      "name": "serverName",
+      "description": "The server name displayed in the ACC UI pages",
+      "value": "",
+      "value_type": "string",
+      "required_permissions": "admin"
+    },
+    {
+      "name": "adminPassword",
+      "description": "Password to elevate via “Server admin commands”",
+      "value": "",
+      "value_type": "string",
+      "required_permissions": "admin"
+    },
+    {
+      "name": "carGroup",
+      "description": "Defines the car group for this server. Possible values are <b>“FreeForAll“, “GT3“, “GT4“, “Cup“, “ST“</b> where “FreeForAll” will allow any driver to join with any car (that he defined as Primary Car).<br>GT3, GT4, Cup, ST will restrict this server to GT3, GT4, Porsche Cup oder Lamborghini Supertrofeo.",
+      "value": "",
+      "value_type": "string",
+      "required_permissions": "user"
+    },
+    {
+      "name": "trackMedalsRequirement",
+      "description": "Defines the amount of track medals that a user has to have for the given track (values 0, 1, 2, 3)",
+      "value": "",
+      "value_type": "number",
+      "required_permissions": "user"
+    },
+    {
+      "name": "safetyRatingRequirement",
+      "description": "Defines the Safety Rating (SA) that a user must have to join this server (values -1, 0, …. 99)",
+      "value": "",
+      "value_type": "number",
+      "required_permissions": "user"
+    },
+    {
+      "name": "racecraftRatingRequirement",
+      "description": "Defines the Safety Rating (RC) that a user must have to join this server (values -1, 0, …. 99)",
+      "value": "",
+      "value_type": "number",
+      "required_permissions": "user"
+    },
+    {
+      "name": "password",
+      "description": "Password required to enter this server. If a password is set, the server is declared “Private Multiplayer”.",
+      "value": "",
+      "value_type": "string",
+      "required_permissions": "user"
+    },
+    {
+      "name": "spectatorPassword",
+      "description": "Password to enter the server as spectator. Must be different to “password” if both is set.",
+      "value": "",
+      "value_type": "string",
+      "required_permissions": "user"
+    },
+    {
+      "name": "maxCarSlots",
+      "description": "Replaces “maxClientsOverride” and “spectatorSlots”. Defines the amount of car slots the server can occupy; this value is overridden if the pit count of the track is lower, or with 30 for public MP. The gap between maxCarSlots and maxConnections defines how many spectators or other irregular connections (ie entry list entries) can be on the server.",
+      "value": "",
+      "value_type": "number",
+      "required_permissions": "user"
+    },
+    {
+      "name": "dumpLeaderboards",
+      "description": "If set to 1, any session will write down the result leaderboard in a “results” folder (must be manually created). See ”Session results”",
+      "value": "",
+      "value_type": "number",
+      "required_permissions": "user"
+    },
+    {
+      "name": "isRaceLocked",
+      "description": "If set to 0, the server will allow joining during a race session. Is not useful in “Public Multiplayer”, as the user-server matching will ignore ongoing race sessions.",
+      "value": "",
+      "value_type": "number",
+      "required_permissions": "user"
+    },
+    {
+      "name": "randomizeTrackWhenEmpty",
+      "description": "If set to 1, the server will change to a random track when the last drivers leaves (which causes a reset to FP1). The “track” property will only define the default state for the first session.",
+      "value": "",
+      "value_type": "number",
+      "required_permissions": "user"
+    },
+    {
+      "name": "centralEntryListPath",
+      "description": "Can override the default entryList path “cfg/entrylist.json”, so multiple ACC servers on the machine can use the same entrylist (and custom car files). Set a full path like “C:/customEntryListSeriesA/”, where the entrylist is stored.<br>Attention: The path seperators have to be slashes (/), backslashes (\\) will not work.",
+      "value": "",
+      "value_type": "",
+      "required_permissions": "admin"
+    },
+    {
+      "name": "allowAutoDQ",
+      "description": "If set to 0, the server won’t automatically disqualify drivers, and instead hand out Stop&Go (30s) penalties. This way a server admin / race director has 3 laps time to review the incident, and either use /dq or /clear based on his judgement.",
+      "value": "",
+      "value_type": "number",
+      "required_permissions": "user"
+    },
+    {
+      "name": "shortFormationLap",
+      "description": "Toggles the short and long formation lap. Long formation is only usable on private servers.",
+      "value": "",
+      "value_type": "number",
+      "required_permissions": "user"
+    },
+    {
+      "name": "dumpEntryList",
+      "description": "Will save an entry list at the end of any Qualifying session. This can be a quick way to collect a starting point to build an entry list, and is a way to save the defaultGridPositions which can be used to run a race without Qualifying session and predefined grid. Also see the corresponding admin command.",
+      "value": "",
+      "value_type": "number",
+      "required_permissions": "admin"
+    },
+    {
+      "name": "formationLapType",
+      "description": "Toggles the formation lap type that is permanently used on this server:<br>3 – default formation lap with position control and UI<br>0 – old limiter lap<br>1 – free (replaces /manual start), only usable for private servers",
+      "value": "",
+      "value_type": "number",
+      "required_permissions": "user"
+    }
+  ]
+}

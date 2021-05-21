@@ -1,0 +1,116 @@
+{
+    "event": [
+        {
+            "name": "track",
+            "description": "The track we run, see “Track name list”. Setting a wrong value will also print out the available track keys in the log. With the 1.1 update containing the 2019 season content, each track has a _2019 variant. Using this track will set the BoP and track grip correspondingly.",
+            "value": "",
+            "value_type": "string",
+            "required_permissions": "user"
+        },
+        {
+            "name": "preRaceWaitingTimeSeconds",
+            "description": "Preparation time before a race. Cannot be less than 30s",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "sessionOverTimeSeconds",
+            "description": "",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "ambientTemp",
+            "description": "Sets the baseline ambient temperature in °C, see “Race weekend simulation“",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "cloudLevel",
+            "description": "Sets the baseline cloud level, see “Race weekend simulation”.<br>Values (0.0, 0.1, …. 1.0",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "rain",
+            "description": "If weather randomness is off, defines the static rain level. With dynamic weather, it increases the rain chance.<br>Values (0.0, 0.1, …. 1.0",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "weatherRandomness",
+            "description": "Sets the dynamic weather level, see “Race weekend simulation”.<br>0 = static weather; 1-4 fairly realistic weather; 5-7 more sensational (but less chaotic compared to versions before 1.0.7)",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "postQualySeconds",
+            "description": "The time after the last driver is finished (or the sessionOverTimeSeconds passed) in Q sessions and the race start.<br>Should not be set to 0, otherwise grid spawning is not secure",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "postRaceSeconds",
+            "description": "Additional time after the race ended for everyone, before the next race weekend starts.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "sessions",
+            "description": "A list of session objects, see the next table",
+            "value": "",
+            "value_type": "string",
+            "required_permissions": "user"
+        },
+        {
+            "name": "metaData",
+            "description": "A user defined string that will be transferred to the result outputs.",
+            "value": "",
+            "value_type": "string",
+            "required_permissions": "user"
+        },
+        {
+            "name": "hourOfDay",
+            "description": "Session starting hour of the day (values 0 - 23)",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "dayOfWeekend",
+            "description": "Race day (1 = Friday, 2 = Saturday, 3 = Sunday) – relevant to the grip and weather simulation.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "timeMultiplier",
+            "description": "Rate at which the session time advances in realtime.<br>Values 0, 1, … 24",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "sessionType",
+            "description": "Race session type: P, Q, R for (P)ractice, (Q)ualy, (R)ace",
+            "value": "",
+            "value_type": "char",
+            "required_permissions": "user"
+        },
+        {
+            "name": "sessionDurationMinutes",
+            "description": "Session duration in minutes",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        }
+    ]
+}

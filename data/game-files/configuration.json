@@ -1,0 +1,39 @@
+{
+    "configuration": [
+        {
+            "name": "tcpPort",
+            "description": "ACC clients will use this port to establish a connection to the server",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "admin"
+        },
+        {
+            "name": "udpPort",
+            "description": "Connected clients will use this Port to stream the car positions and is used for the ping test. In case you never see your server getting a ping value, this indicates that the udpPort is not accessible",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "admin"
+        },
+        {
+            "name": "registerToLobby",
+            "description": "When 0, this server won’t register to the backend. Is useful for LAN sessions. If 0, the server is declared “Private Multiplayer”.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "admin"
+        },
+        {
+            "name": "maxConnections",
+            "description": "Replaces “maxClients”. The maximum amount of connections a server will accept at a time. If you own the hardware server, you can just set any high number you want. If you rented a 16 or 24 slot server, your Hosting Provider probably has set this here and doesn’t give you write-access to this configuration file",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "admin"
+        },
+        {
+            "name": "lanDiscovery",
+            "description": "Defines if the server will listen to LAN discovery requests. Can be turned off for dedicated servers.",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "admin"
+        }
+    ]
+}

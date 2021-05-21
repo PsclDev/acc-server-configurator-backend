@@ -1,0 +1,67 @@
+{
+    "assistRules": [
+        {
+            "name": "stabilityControlLevelMax",
+            "description": "Set’s the maximum % of SC that can be used. In case a client has a higher SC set than allowed by the server, he will only run what is allowed (25% in this example). Obviously setting this property to 0 removes all SC, including mouse and keyboard users.<br>The Stability Control is an artificial driving aid that allows the car to act out of the physics boundaries, and highly recommended to overcome input methods like Keyboards, Gamepads and Mouse steering. However, there is a built-in effect that makes the SC performance inferior, so in theory using (and relying) on SC is already more than enough penalty, and the way to improve performance is to practice driving without.<br>Default: 100",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "disableAutosteer",
+            "description": "Disables the steering aid that is only available for gamepad controllers. Unlike SC, this works inside the physics and does not allow unrealistic driving behaviour – except that this is a very strong aid with superhuman feeling for grip and high reaction speed. There is a built-in penalty that should balance the driving performance in most cases, and give an incentive to learn not to use the driving aid.<br>Default: 0",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "disableAutoLights",
+            "description": "Forces the equivalent assist option to “off”",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "disableAutoWiper",
+            "description": "Forces the equivalent assist option to “off”",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "disableAutoEngineStart",
+            "description": "Forces the equivalent assist option to “off”",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "disableAutoPitLimiter",
+            "description": "Forces the equivalent assist option to “off”",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "disableAutoGear",
+            "description": "Forces the equivalent assist option to “off”",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "disableAutoClutch",
+            "description": "Forces the equivalent assist option to “off”",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        },
+        {
+            "name": "disableIdealLine",
+            "description": "Forces the equivalent assist option to “off”",
+            "value": "",
+            "value_type": "number",
+            "required_permissions": "user"
+        }
+    ]
+}
