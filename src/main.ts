@@ -6,7 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const logger = new Logger('Main');
-  ConfigModule.forRoot();
+  ConfigModule.forRoot({ isGlobal: true });
   logger.log('Load .env file');
 
   const port = Number(process.env.PORT);
