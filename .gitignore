@@ -1,5 +1,6 @@
 # Custom
 .env
+*TEST.json
 
 # compiled output
 /dist
