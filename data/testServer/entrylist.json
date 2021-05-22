@@ -1,120 +1,167 @@
 {
-	"entries": [{
-			"drivers": [{
-				"playerID": "S76561199016297842"
-			}]
+	"entries": [
+		{
+			"drivers": [
+				{
+					"playerID": "S76561199016297842"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198263616681"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198263616681"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198117221481"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198117221481"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198000357172"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198000357172"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198856284069"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198856284069"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198176030802"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198176030802"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198202810295"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198202810295"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198202383982"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198202383982"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198087883258"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198087883258"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198158539072"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198158539072"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198069956837"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198069956837"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198148787811"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198148787811"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198964590576"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198964590576"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198127643906"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198127643906"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198135858694"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198135858694"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198964590576"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198964590576"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198075756970"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198075756970"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198156741780"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198156741780"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198082237486"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198082237486"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198856284069"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198856284069"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198158539072"
-			}]
+			"drivers": [
+				{
+					"playerID": "S76561198158539072"
+				}
+			]
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198042523064"
-			}],
+			"drivers": [
+				{
+					"playerID": "S76561198042523064"
+				}
+			],
 			"raceNumber": 9,
 			"isServerAdmin": 1
 		},
 		{
-			"drivers": [{
-				"playerID": "S76561198085050739"
-			}],
+			"drivers": [
+				{
+					"playerID": "S76561198085050739"
+				}
+			],
 			"raceNumber": 911,
 			"isServerAdmin": 1
 		}
