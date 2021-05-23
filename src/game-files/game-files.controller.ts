@@ -1,8 +1,10 @@
-import { Body, Controller, Get, Patch } from '@nestjs/common';
+import { Body, Controller, Get, Patch, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { ParameterDto } from 'src/game-files/parameter/parameter.dto';
 import { GameFilesService } from './game-files.service';
 
 @Controller('game-files')
+@UseGuards(AuthGuard())
 export class GameFilesController {
   constructor(private gameFilesService: GameFilesService) {}
 
