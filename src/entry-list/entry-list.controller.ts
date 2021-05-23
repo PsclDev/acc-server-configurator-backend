@@ -1,8 +1,10 @@
-import { Body, Controller, Get, Patch } from '@nestjs/common';
+import { Body, Controller, Get, Patch, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { DriverDto } from './driver.dto';
 import { EntryListService } from './entry-list.service';
 
 @Controller('entrylist')
+@UseGuards(AuthGuard())
 export class EntryListController {
   constructor(private entryListService: EntryListService) {}
 
