@@ -1,6 +1,7 @@
 # Custom
 .env
 *TEST.json
+*auth.json
 
 # compiled output
 /dist
