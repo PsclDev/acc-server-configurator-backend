@@ -1,5 +1,5 @@
 import { ConflictException, Injectable } from '@nestjs/common';
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
 import * as bcrypt from 'bcrypt';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { User } from './user.entity';
@@ -13,6 +13,9 @@ export class AuthorizationRepository {
 
   async loadUsers(): Promise<void> {
     const filePath = this.authPath;
+
+    if (!existsSync(filePath)) return;
+
     const fileData = readFileSync(filePath, 'utf-8');
     const jsonContent = JSON.parse(fileData);
     const userlist = jsonContent.users;
