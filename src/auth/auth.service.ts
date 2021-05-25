@@ -11,11 +11,15 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
+  async signUp(
+    authCredentialsDto: AuthCredentialsDto,
+  ): Promise<{ accessToken: string }> {
     if (authCredentialsDto.invitationCode !== process.env.SIGNUP_SECRET)
       throw new UnauthorizedException('Invalid Invitation Code');
 
-    return this.authRepo.signUp(authCredentialsDto);
+    await this.authRepo.signUp(authCredentialsDto);
+
+    return this.signIn(authCredentialsDto);
   }
 
   async signIn(
