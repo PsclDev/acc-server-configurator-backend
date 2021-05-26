@@ -1,4 +1,10 @@
-import { IsString, MinLength, MaxLength, Matches } from 'class-validator';
+import {
+  IsString,
+  MinLength,
+  MaxLength,
+  Matches,
+  IsOptional,
+} from 'class-validator';
 
 export class AuthCredentialsDto {
   @IsString()
@@ -14,6 +20,7 @@ export class AuthCredentialsDto {
   })
   password: string;
 
+  @IsOptional()
   @IsString()
   invitationCode: string;
 }
