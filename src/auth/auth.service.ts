@@ -19,7 +19,7 @@ export class AuthService {
 
     await this.authRepo.signUp(authCredentialsDto);
 
-    return this.signIn(authCredentialsDto);
+    return await this.signIn(authCredentialsDto);
   }
 
   async signIn(
