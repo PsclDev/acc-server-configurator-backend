@@ -1,5 +1,5 @@
-import { ConflictException, Injectable } from '@nestjs/common';
-import { readFile, writeFile, existsSync } from 'fs';
+import { ConflictException, Injectable, Logger } from '@nestjs/common';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
 import * as bcrypt from 'bcrypt';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { User } from './user.entity';
@@ -8,29 +8,29 @@ import { ParameterPermission } from 'src/game-files/parameter/parameter-permissi
 
 @Injectable()
 export class AuthorizationRepository {
+  private readonly logger;
   private users: User[] = [];
   private authPath = './data/auth.json';
 
+  constructor() {
+    this.logger = new Logger('AuthRepository');
+  }
+
   async loadUsers(): Promise<void> {
+    this.logger.debug('Load Users');
     const filePath = this.authPath;
 
     if (!existsSync(filePath)) return;
 
-    let fileData;
-    await readFile(filePath, 'utf-8', (err, data) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
+    const data = readFileSync(filePath, 'utf-8');
+    const jsonContent = JSON.parse(data);
 
-      fileData = data;
-    });
-
-    const jsonContent = JSON.parse(fileData);
+    this.logger.debug('Read user file', jsonContent);
     const userlist = jsonContent.users;
 
     for (const idx in userlist) {
       const jsonUser = userlist[idx].user;
+      this.logger.debug('Current Json User', jsonUser);
 
       const user = new User();
       user.id = jsonUser.id;
@@ -41,9 +41,12 @@ export class AuthorizationRepository {
 
       this.users.push(user);
     }
+
+    this.logger.debug('All Users Array', this.users);
   }
 
   async exportUsers(): Promise<void> {
+    this.logger.debug('Export User');
     const maxIdx = this.users.length - 1;
     let jsonString = '{ "users": [';
 
@@ -65,15 +68,13 @@ export class AuthorizationRepository {
 
     jsonString += ']}';
 
-    await writeFile(this.authPath, jsonString, (err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-    });
+    this.logger.debug('Export File Content', jsonString);
+    await writeFileSync(this.authPath, jsonString);
+    return;
   }
 
   async findUser(username: string): Promise<User> {
+    this.logger.debug('Find User');
     if (this.users.length === 0) await this.loadUsers();
 
     const idx = this.users.findIndex(
@@ -86,6 +87,7 @@ export class AuthorizationRepository {
   }
 
   async createUser(user: User): Promise<void> {
+    this.logger.debug('Create User');
     if (this.users.length === 0) await this.loadUsers();
 
     const userFound = await this.findUser(user.username);
@@ -98,6 +100,7 @@ export class AuthorizationRepository {
   }
 
   async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
+    this.logger.debug('Sign Up');
     const { username, password } = authCredentialsDto;
 
     const user = new User();
@@ -111,6 +114,7 @@ export class AuthorizationRepository {
   }
 
   async setPermissions(permission: string): Promise<ParameterPermission> {
+    this.logger.debug('Set Permissions');
     if (permission.toLowerCase() === 'admin') return ParameterPermission.ADMIN;
     return ParameterPermission.USER;
   }
@@ -118,6 +122,7 @@ export class AuthorizationRepository {
   async validateUserPassword(
     authCredentialsDto: AuthCredentialsDto,
   ): Promise<User> {
+    this.logger.debug('Validate User Password');
     const { username, password } = authCredentialsDto;
 
     const user = await this.findUser(username);
@@ -132,6 +137,7 @@ export class AuthorizationRepository {
   }
 
   async hashPassword(password: string, salt: string): Promise<string> {
+    this.logger.debug('Hash Password');
     return bcrypt.hash(password, salt);
   }
 }
