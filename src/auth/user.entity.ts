@@ -2,7 +2,7 @@ import * as bcrypt from 'bcrypt';
 import { ParameterPermission } from 'src/game-files/parameter/parameter-permission.enum';
 
 export class User {
-  id: number;
+  id: string;
   username: string;
   password: string;
   salt: string;
