@@ -10,8 +10,10 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private authRepo: AuthorizationRepository) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      ignoreExpiration: false,
       secretOrKey: process.env.JWT_SECRET,
     });
+    console.log('abc');
   }
 
   async validate(payload: JwtPayload): Promise<User> {
