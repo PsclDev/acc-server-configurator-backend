@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { readFileSync, writeFileSync } from 'fs';
+import got from 'got';
 import { DriverDto } from './driver.dto';
 
 @Injectable()
@@ -24,10 +25,22 @@ export class EntryListRepository {
       if (driverEntry.isServerAdmin !== undefined)
         driver.isServerAdmin = driverEntry.isServerAdmin === 1 ? true : false;
 
+      driver.username = await this.getSteamInfo(
+        driver.playerID[0].substring(1),
+      );
+
       driverArr.push(driver);
     }
 
     return driverArr;
+  }
+
+  private async getSteamInfo(steamId: string): Promise<string> {
+    const steamKey = process.env.STEAM_API_KEY;
+    const url = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamKey}&steamids=${steamId}`;
+    const response = await got(url);
+    const jsonBody = JSON.parse(response.body);
+    return jsonBody.response.players[0].personaname;
   }
 
   async exportToFile(
