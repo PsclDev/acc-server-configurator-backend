@@ -6,7 +6,7 @@ import { DriverDto } from './driver.dto';
 @Injectable()
 export class EntryListRepository {
   async getEntryList(filePath: string): Promise<DriverDto[]> {
-    const driverArr: DriverDto[] = [];
+    let driverArr: DriverDto[] = [];
     const fileData = readFileSync(filePath, 'utf-8');
     const jsonContent = JSON.parse(fileData);
 
@@ -17,7 +17,7 @@ export class EntryListRepository {
 
       for (const arrIdx in driverEntry.drivers) {
         const driverInArr = driverEntry.drivers[arrIdx];
-        driver.playerID.push(driverInArr.playerID);
+        driver.playerID.push(driverInArr.playerID.substring(1));
       }
 
       if (driverEntry.raceNumber !== undefined)
@@ -25,22 +25,39 @@ export class EntryListRepository {
       if (driverEntry.isServerAdmin !== undefined)
         driver.isServerAdmin = driverEntry.isServerAdmin === 1 ? true : false;
 
-      driver.username = await this.getSteamInfo(
-        driver.playerID[0].substring(1),
-      );
-
       driverArr.push(driver);
     }
+
+    driverArr = await this.getSteamInfo(driverArr);
 
     return driverArr;
   }
 
-  private async getSteamInfo(steamId: string): Promise<string> {
+  private async getSteamInfo(driverArr: DriverDto[]): Promise<DriverDto[]> {
+    const tmpArr: DriverDto[] = [];
     const steamKey = process.env.STEAM_API_KEY;
-    const url = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamKey}&steamids=${steamId}`;
+    let steamIdsString;
+    driverArr.forEach((driver) => (steamIdsString += `${driver.playerID},`));
+
+    const url = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamKey}&steamids=${steamIdsString}`;
     const response = await got(url);
     const jsonBody = JSON.parse(response.body);
-    return jsonBody.response.players[0].personaname;
+
+    for (const idx in driverArr) {
+      const driver = driverArr[idx];
+      const responseIdx = jsonBody.response.players.findIndex(
+        (data) => data.steamid === driver.playerID[0],
+      );
+
+      if (responseIdx > -1) {
+        driver.username = jsonBody.response.players[responseIdx].personaname;
+        console.log('found');
+      }
+
+      tmpArr.push(driver);
+    }
+
+    return tmpArr;
   }
 
   async exportToFile(
@@ -56,7 +73,7 @@ export class EntryListRepository {
 
       for (const driverIdx in driver.playerID) {
         const driverId = driver.playerID[driverIdx];
-        jsonString += `{"playerID": "${driverId}"}`;
+        jsonString += `{"playerID": "S${driverId}"}`;
       }
 
       jsonString += '],';
