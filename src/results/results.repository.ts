@@ -11,7 +11,7 @@ export class ResultsRepository {
       const fileName = files[fileIdx];
       const fileData = readFileSync(`${dirPath}/${fileName}`, 'utf-8');
       const json = JSON.parse(fileData);
-      results.push(json);
+      results.push({ name: fileName, data: json });
     }
 
     return results;
