@@ -78,7 +78,7 @@ export class EntryListRepository {
       jsonString += ']';
 
       if (driver.raceNumber !== undefined)
-        jsonString += `"raceNumber": ${driver.raceNumber}`;
+        jsonString += `,"raceNumber": ${driver.raceNumber}`;
 
       if (driver.isServerAdmin !== undefined)
         jsonString += `,"isServerAdmin": ${driver.isServerAdmin ? 1 : 0}`;
