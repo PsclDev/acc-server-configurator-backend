@@ -11,18 +11,16 @@ export class ResultsRepository {
       const fileName = files[fileIdx];
       const fileData = readFileSync(`${dirPath}/${fileName}`, 'utf-8');
 
-      const cleanedJson = await this.cleanJsonFile(fileName, fileData);
-      console.log(cleanedJson);
-
+      const cleanedJson = await this.correctJsonFile(fileName, fileData);
       const json = JSON.parse(cleanedJson);
+
       results.push({ name: fileName, data: json });
     }
 
-    console.log(results);
     return results;
   }
 
-  private async cleanJsonFile(
+  private async correctJsonFile(
     session: string,
     content: string,
   ): Promise<string> {
