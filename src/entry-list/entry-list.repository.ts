@@ -51,7 +51,6 @@ export class EntryListRepository {
 
       if (responseIdx > -1) {
         driver.username = jsonBody.response.players[responseIdx].personaname;
-        console.log('found');
       }
 
       tmpArr.push(driver);
@@ -76,7 +75,7 @@ export class EntryListRepository {
         jsonString += `{"playerID": "S${driverId}"}`;
       }
 
-      jsonString += '],';
+      jsonString += ']';
 
       if (driver.raceNumber !== undefined)
         jsonString += `"raceNumber": ${driver.raceNumber}`;
