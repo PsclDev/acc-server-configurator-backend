@@ -17,7 +17,7 @@ export class EntryListService {
   async updateEntryList(entryList: DriverDto[]): Promise<string> {
     return await this.entryListRepo.exportToFile(
       entryList,
-      `${this.baseServerSettigsPath}/entrylistTEST.json`,
+      `${this.baseServerSettigsPath}/entrylist.json`,
     );
   }
 }
