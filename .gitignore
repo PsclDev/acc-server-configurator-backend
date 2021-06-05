@@ -2,6 +2,7 @@
 .env
 *TEST.json
 *auth.json
+.VSCodeCounter
 
 # compiled output
 /dist

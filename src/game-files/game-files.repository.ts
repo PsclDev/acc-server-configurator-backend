@@ -47,7 +47,9 @@ export class GameFilesRepository {
       if (idx === -1) continue;
 
       const parameter = parameters[idx];
-      parameter.value = jsonContent[attribute];
+      if (typeof jsonContent[attribute] === 'object')
+        parameter.value = JSON.stringify(jsonContent[attribute]);
+      else parameter.value = jsonContent[attribute];
 
       parameters[idx] = parameter;
     }
