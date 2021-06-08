@@ -65,7 +65,7 @@ export class GameFilesService {
   async patchEventRules(parameters: ParameterDto[]): Promise<string> {
     return await this.gameFilesRepo.exportArrayToFile(
       parameters,
-      `${this.baseServerSettigsPath}/eventRulesTEST.json`,
+      `${this.baseServerSettigsPath}/eventRules.json`,
     );
   }
 
