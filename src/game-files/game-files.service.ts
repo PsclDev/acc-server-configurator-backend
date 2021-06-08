@@ -79,7 +79,7 @@ export class GameFilesService {
   async patchSettings(parameters: ParameterDto[]): Promise<string> {
     return await this.gameFilesRepo.exportArrayToFile(
       parameters,
-      `${this.baseServerSettigsPath}/settingsTEST.json`,
+      `${this.baseServerSettigsPath}/settings.json`,
     );
   }
 }
