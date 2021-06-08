@@ -79,7 +79,11 @@ export class GameFilesRepository {
         if (isNaN(parameter.value))
           jsonString += `"${parameter.name}":"${parameter.value}"`;
         else jsonString += `"${parameter.name}":${parameter.value}`;
-      } else jsonString += `"${parameter.name}":"${parameter.value}",`;
+      } else {
+        if (isNaN(parameter.value))
+          jsonString += `"${parameter.name}":"${parameter.value}",`;
+        else jsonString += `"${parameter.name}":${parameter.value},`;
+      }
     }
     jsonString += '}';
 
