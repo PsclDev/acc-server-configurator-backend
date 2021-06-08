@@ -23,7 +23,7 @@ export class GameFilesService {
   async patchAssistRules(parameters: ParameterDto[]): Promise<string> {
     return await this.gameFilesRepo.exportArrayToFile(
       parameters,
-      `${this.baseServerSettigsPath}/assistRulesTEST.json`,
+      `${this.baseServerSettigsPath}/assistRules.json`,
     );
   }
 
