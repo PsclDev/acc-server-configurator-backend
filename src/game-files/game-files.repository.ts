@@ -75,9 +75,11 @@ export class GameFilesRepository {
 
       if (parameter.value === '') continue;
 
-      if (parseInt(idx) === maxIdx)
-        jsonString += `"${parameter.name}":"${parameter.value}"`;
-      else jsonString += `"${parameter.name}":"${parameter.value}",`;
+      if (parseInt(idx) === maxIdx) {
+        if (isNaN(parameter.value))
+          jsonString += `"${parameter.name}":"${parameter.value}"`;
+        else jsonString += `"${parameter.name}":${parameter.value}`;
+      } else jsonString += `"${parameter.name}":"${parameter.value}",`;
     }
     jsonString += '}';
 
