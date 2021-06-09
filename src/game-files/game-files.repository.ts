@@ -8,6 +8,8 @@ export class GameFilesRepository {
   async getFileContentWithValues(
     jsonTemplate,
     filePath: string,
+    sessionFile = false,
+    sessionType = '',
   ): Promise<ParameterDto[]> {
     let paramArr: ParameterDto[] = [];
 
@@ -27,7 +29,13 @@ export class GameFilesRepository {
       paramArr.push(param);
     }
 
-    paramArr = await this.insertValuesToArray(paramArr, filePath);
+    if (sessionFile)
+      paramArr = await this.insertSessionValuesToArray(
+        paramArr,
+        filePath,
+        sessionType,
+      );
+    else paramArr = await this.insertValuesToArray(paramArr, filePath);
 
     return paramArr;
   }
@@ -47,14 +55,50 @@ export class GameFilesRepository {
       if (idx === -1) continue;
 
       const parameter = parameters[idx];
-      if (typeof jsonContent[attribute] === 'object')
-        parameter.value = JSON.stringify(jsonContent[attribute]);
-      else parameter.value = jsonContent[attribute];
-
+      parameter.value = jsonContent[attribute];
       parameters[idx] = parameter;
     }
 
     return parameters;
+  }
+
+  async insertSessionValuesToArray(
+    parameters: ParameterDto[],
+    filePath: string,
+    sessionType: string,
+  ): Promise<ParameterDto[]> {
+    const fileData = readFileSync(filePath, 'utf-8');
+    const jsonContent = JSON.parse(fileData);
+    const sessionContent = jsonContent.sessions.filter(
+      (entry) => entry.sessionType === sessionType,
+    );
+
+    for (const attribute in sessionContent[0]) {
+      const idx = parameters.findIndex(
+        (parameter) => parameter.name === attribute,
+      );
+
+      if (idx === -1) continue;
+
+      const parameter = parameters[idx];
+      parameter.name =
+        (await this.getSessionTypeAsName(sessionType)) + ' - ' + parameter.name;
+      parameter.value = sessionContent[0][attribute];
+      parameters[idx] = parameter;
+    }
+
+    return parameters;
+  }
+
+  async getSessionTypeAsName(sessionType: string): Promise<string> {
+    switch (sessionType) {
+      case 'P':
+        return 'Practice';
+      case 'Q':
+        return 'Qualifying';
+      case 'R':
+        return 'Race';
+    }
   }
 
   getParameterPermission(permission: string): ParameterPermission {
