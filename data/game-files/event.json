@@ -64,52 +64,10 @@
             "required_permissions": "user"
         },
         {
-            "name": "sessions",
-            "description": "A list of session objects, see the next table",
-            "value": "",
-            "value_type": "string",
-            "required_permissions": "user"
-        },
-        {
             "name": "metaData",
             "description": "A user defined string that will be transferred to the result outputs.",
             "value": "",
             "value_type": "string",
-            "required_permissions": "user"
-        },
-        {
-            "name": "hourOfDay",
-            "description": "Session starting hour of the day (values 0 - 23)",
-            "value": "",
-            "value_type": "number",
-            "required_permissions": "user"
-        },
-        {
-            "name": "dayOfWeekend",
-            "description": "Race day (1 = Friday, 2 = Saturday, 3 = Sunday) – relevant to the grip and weather simulation.",
-            "value": "",
-            "value_type": "number",
-            "required_permissions": "user"
-        },
-        {
-            "name": "timeMultiplier",
-            "description": "Rate at which the session time advances in realtime.<br>Values 0, 1, … 24",
-            "value": "",
-            "value_type": "number",
-            "required_permissions": "user"
-        },
-        {
-            "name": "sessionType",
-            "description": "Race session type: P, Q, R for (P)ractice, (Q)ualy, (R)ace",
-            "value": "",
-            "value_type": "char",
-            "required_permissions": "user"
-        },
-        {
-            "name": "sessionDurationMinutes",
-            "description": "Session duration in minutes",
-            "value": "",
-            "value_type": "number",
             "required_permissions": "user"
         }
     ]
