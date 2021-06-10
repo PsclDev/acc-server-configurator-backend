@@ -112,6 +112,26 @@ export class GameFilesRepository {
     filePath: string,
   ): Promise<string> {
     let jsonString = '{';
+    const sessionParameters = parameters.filter((entry) => {
+      if (
+        entry.name.startsWith('Practice') ||
+        entry.name.startsWith('Qualifying') ||
+        entry.name.startsWith('Race')
+      )
+        return true;
+    });
+
+    parameters = parameters.filter((entry) => {
+      if (
+        !(
+          entry.name.startsWith('Practice') ||
+          entry.name.startsWith('Qualifying') ||
+          entry.name.startsWith('Race')
+        )
+      )
+        return true;
+    });
+
     const maxIdx = parameters.length - 1;
 
     for (const idx in parameters) {
@@ -129,10 +149,79 @@ export class GameFilesRepository {
         else jsonString += `"${parameter.name}":${parameter.value},`;
       }
     }
-    jsonString += '}';
+
+    const sessionsString = await this.generateSessionsArray(sessionParameters);
+    jsonString += sessionsString;
+    jsonString += ', "configVersion": 1}';
 
     writeFileSync(filePath, jsonString);
 
     return 'successfully updated';
+  }
+
+  private async generateSessionsArray(
+    parameters: ParameterDto[],
+  ): Promise<string> {
+    parameters.sort((a, b) => a.name.localeCompare(b.name));
+    let practice = '{ "sessionType": "P",';
+    let qualifying = '{ "sessionType": "Q",';
+    let race = '{ "sessionType": "R",';
+
+    const maxIdx = parameters.length - 1;
+    for (const idx in parameters) {
+      const parameter = parameters[idx];
+
+      if (parameter.name.startsWith('Practice')) {
+        practice = await this.addParameterToString(
+          'Practice',
+          parseInt(idx),
+          maxIdx,
+          practice,
+          parameter,
+        );
+      }
+      if (parameter.name.startsWith('Qualifying')) {
+        qualifying = await this.addParameterToString(
+          'Qualifying',
+          parseInt(idx),
+          maxIdx,
+          qualifying,
+          parameter,
+        );
+      }
+      if (parameter.name.startsWith('Race')) {
+        race = await this.addParameterToString(
+          'Race',
+          parseInt(idx),
+          maxIdx,
+          race,
+          parameter,
+        );
+      }
+    }
+
+    practice += '},';
+    qualifying += '},';
+    race += '}';
+
+    return '"sessions": [' + practice + qualifying + race + ']';
+  }
+
+  private async addParameterToString(
+    type: string,
+    idx: number,
+    maxIdx: number,
+    jsonString: string,
+    parameter: ParameterDto,
+  ) {
+    parameter.name = parameter.name.replace(`${type} - `, '');
+
+    if (idx === maxIdx) {
+      jsonString += `"${parameter.name}":${parameter.value}`;
+    } else {
+      jsonString += `"${parameter.name}":${parameter.value},`;
+    }
+
+    return jsonString;
   }
 }
