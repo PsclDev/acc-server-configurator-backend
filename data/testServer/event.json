@@ -1,1 +1,9 @@
-{"track":"barcelona_2020","preRaceWaitingTimeSeconds":120,"sessionOverTimeSeconds":240,"ambientTemp":24,"cloudLevel":0.2,"rain":0,"weatherRandomness":1,"sessions": [{ "sessionType": "P","dayOfWeekend":2,"hourOfDay":10,"sessionDurationMinutes":5,"timeMultiplier":1,},{ "sessionType": "Q","dayOfWeekend":3,"hourOfDay":12,"sessionDurationMinutes":480,"timeMultiplier":1,},{ "sessionType": "R","dayOfWeekend":3,"hourOfDay":14,"sessionDurationMinutes":30,"timeMultiplier":3}], "configVersion": 1}
+{
+    "track": "barcelona_2020",
+    "preRaceWaitingTimeSeconds": 120,
+    "sessionOverTimeSeconds": 240,
+    "ambientTemp": 24,
+    "cloudLevel": 0.2,
+    "rain": 0,
+    "weatherRandomness": 1
+}

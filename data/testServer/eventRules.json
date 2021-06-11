@@ -1,1 +1,13 @@
-{"qualifyStandingType":1,"pitWindowLengthSec":1200,"driverStintTimeSec":-1,"mandatoryPitstopCount":0,"maxTotalDrivingTime":-1,"maxDriversCount":1,"isRefuellingAllowedInRace":true,"isRefuellingTimeFixed":true,"isMandatoryPitstopRefuellingRequired":false,"isMandatoryPitstopTyreChangeRequired":true,"isMandatoryPitstopSwapDriverRequired":false"sessions": [{ "sessionType": "P",},{ "sessionType": "Q",},{ "sessionType": "R",}], "configVersion": 1}
+{
+    "qualifyStandingType": 1,
+    "pitWindowLengthSec": 1200,
+    "driverStintTimeSec": -1,
+    "mandatoryPitstopCount": 0,
+    "maxTotalDrivingTime": -1,
+    "maxDriversCount": 1,
+    "isRefuellingAllowedInRace": true,
+    "isRefuellingTimeFixed": true,
+    "isMandatoryPitstopRefuellingRequired": false,
+    "isMandatoryPitstopTyreChangeRequired": true,
+    "isMandatoryPitstopSwapDriverRequired": false
+}
