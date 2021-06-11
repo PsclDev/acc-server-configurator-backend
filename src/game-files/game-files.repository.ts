@@ -40,7 +40,7 @@ export class GameFilesRepository {
     return paramArr;
   }
 
-  async insertValuesToArray(
+  private async insertValuesToArray(
     parameters: ParameterDto[],
     filePath: string,
   ): Promise<ParameterDto[]> {
@@ -62,7 +62,7 @@ export class GameFilesRepository {
     return parameters;
   }
 
-  async insertSessionValuesToArray(
+  private async insertSessionValuesToArray(
     parameters: ParameterDto[],
     filePath: string,
     sessionType: string,
@@ -90,7 +90,7 @@ export class GameFilesRepository {
     return parameters;
   }
 
-  async getSessionTypeAsName(sessionType: string): Promise<string> {
+  private async getSessionTypeAsName(sessionType: string): Promise<string> {
     switch (sessionType) {
       case 'P':
         return 'Practice';
@@ -101,7 +101,7 @@ export class GameFilesRepository {
     }
   }
 
-  getParameterPermission(permission: string): ParameterPermission {
+  private getParameterPermission(permission: string): ParameterPermission {
     if (permission.toLowerCase() === 'admin') return ParameterPermission.ADMIN;
 
     return ParameterPermission.USER;

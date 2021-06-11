@@ -1,7 +1,1 @@
-{
-    "udpPort": 9686,
-    "tcpPort": 9687,
-    "maxConnections": 32,
-    "configVersion": 1,
-    "registerToLobby": 1 
-}
+{"tcpPort":9687,"udpPort":9686,"registerToLobby":1,"maxConnections":32,"sessions": [{ "sessionType": "P",},{ "sessionType": "Q",},{ "sessionType": "R",}], "configVersion": 1}

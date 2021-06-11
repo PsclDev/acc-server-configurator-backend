@@ -1,11 +1,1 @@
-{
-	"stabilityControlLevelMax": 0,
-	"disableAutosteer": 0,
-	"disableIdealLine": 0,
-	"disableAutoPitLimiter": 0,
-	"disableAutoGear": 0,
-	"disableAutoClutch": 0,
-	"disableAutoEngineStart": 0,
-	"disableAutoWiper": 0,
-	"disableAutoLights": 0
-}
+{"stabilityControlLevelMax":0,"disableAutosteer":0,"disableAutoLights":0,"disableAutoWiper":0,"disableAutoEngineStart":0,"disableAutoPitLimiter":0,"disableAutoGear":0,"disableAutoClutch":0,"disableIdealLine":0"sessions": [{ "sessionType": "P",},{ "sessionType": "Q",},{ "sessionType": "R",}], "configVersion": 1}
