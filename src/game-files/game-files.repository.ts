@@ -150,8 +150,13 @@ export class GameFilesRepository {
       }
     }
 
-    const sessionsString = await this.generateSessionsArray(sessionParameters);
-    jsonString += sessionsString;
+    if (filePath.endsWith('event.json')) {
+      const sessionsString = await this.generateSessionsArray(
+        sessionParameters,
+      );
+      jsonString += sessionsString;
+    }
+
     jsonString += ', "configVersion": 1}';
 
     writeFileSync(filePath, jsonString);
