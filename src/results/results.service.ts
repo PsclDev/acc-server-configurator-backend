@@ -12,14 +12,88 @@ export class ResultsService {
     const resultsData = await this.resultsRepo.getResults(this.dirPath);
 
     for (const idx in resultsData) {
-      const result = resultsData[idx];
-      result.data = await this.formatData(result.data);
-      result.name = await this.getTitle(result.name, result.data.trackName);
+      const unformattedResult = resultsData[idx];
+      const unformattedData = unformattedResult.data;
 
+      const result = {
+        name: await this.getTitle(
+          unformattedResult.name,
+          unformattedData.trackName,
+        ),
+        isWeatherWet: unformattedData.sessionResult.isWetSession,
+        bestLap: await this.getTimeValueAsString(
+          String(unformattedData.sessionResult.bestlap),
+        ),
+        bestSplits: {
+          sectorOne: await this.getTimeValueAsString(
+            String(unformattedData.sessionResult.bestSplits[0]),
+          ),
+          sectorTwo: await this.getTimeValueAsString(
+            String(unformattedData.sessionResult.bestSplits[1]),
+          ),
+          sectorThree: await this.getTimeValueAsString(
+            String(unformattedData.sessionResult.bestSplits[2]),
+          ),
+        },
+        cars: [
+          {
+            car: {
+              raceNumber: 0,
+              name: 'Porsche',
+              teamName: '',
+              bestLap: 111948,
+              bestSplits: {
+                sectorOne: 35565,
+                sectorTwo: 39957,
+                sectorThree: 36426,
+              },
+              totalTime: 407894,
+              lapCount: 3,
+              missingMandatoryPitstop: -1,
+              drivers: [
+                {
+                  driver: {
+                    name: 'Max Mustermann',
+                    shortname: 'MM',
+                  },
+                },
+              ],
+              laps: [
+                {
+                  lap: {
+                    driver: 'Max Mustermann',
+                    laptime: 109446,
+                    isValidForBest: false,
+                    splits: {
+                      sectorOne: 35565,
+                      sectorTwo: 39957,
+                      sectorThree: 36426,
+                    },
+                  },
+                },
+              ],
+              penalties: [
+                {
+                  penaltie: {
+                    driver: 'Max Mustermann',
+                    reason: 'Cutting',
+                    penalty: 'Drive Through',
+                    violationInLap: 7,
+                    clearedInLap: 9,
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      };
+
+      console.log(result);
       results.push(result);
     }
 
-    return results;
+    return [];
+    //return results;
   }
 
   private async getTitle(filename: string, trackName: string): Promise<string> {
