@@ -1,0 +1,152 @@
+{
+    "carList": [
+        {
+            "value": 0,
+            "name": "Porsche 991 GT3"
+        },
+        {
+            "value": 1,
+            "name": "Mercedes AMG GT3"
+        },
+        {
+            "value": 2,
+            "name": "Ferrari 488 GT3"
+        },
+        {
+            "value": 3,
+            "name": "Audi R8 LMS"
+        },
+        {
+            "value": 4,
+            "name": "Lamborghini Huracan GT3"
+        },
+        {
+            "value": 5,
+            "name": "McLaren 650s GT3"
+        },
+        {
+            "value": 6,
+            "name": "Nissan GT R Nismo GT3 2018"
+        },
+        {
+            "value": 7,
+            "name": "BMW M6 GT3"
+        },
+        {
+            "value": 8,
+            "name": "Bentley Continental GT3 2018"
+        },
+        {
+            "value": 9,
+            "name": "Porsche 991.2 GT3 Cup"
+        },
+        {
+            "value": 10,
+            "name": "Nissan GT-R Nismo GT3 2017"
+        },
+        {
+            "value": 11,
+            "name": "Bentley Continental GT3 2016"
+        },
+        {
+            "value": 12,
+            "name": "Aston Martin Vantage V12 GT3"
+        },
+        {
+            "value": 13,
+            "name": "Lamborghini Gallardo R-EX"
+        },
+        {
+            "value": 14,
+            "name": "Jaguar G3"
+        },
+        {
+            "value": 15,
+            "name": "Lexus RC F GT3"
+        },
+        {
+            "value": 16,
+            "name": "Lamborghini Huracan Evo (2019)"
+        },
+        {
+            "value": 17,
+            "name": "Honda NSX GT3"
+        },
+        {
+            "value": 18,
+            "name": "Lamborghini Huracan SuperTrofeo"
+        },
+        {
+            "value": 19,
+            "name": "Audi R8 LMS Evo (2019)"
+        },
+        {
+            "value": 20,
+            "name": "AMR V8 Vantage (2019)"
+        },
+        {
+            "value": 21,
+            "name": "Honda NSX Evo (2019)"
+        },
+        {
+            "value": 22,
+            "name": "McLaren 720S GT3 (2019)"
+        },
+        {
+            "value": 23,
+            "name": "Porsche 911 II GT3 R (2019)"
+        },
+        {
+            "value": 24,
+            "name": "Ferrari 488 GT3 Evo 2020"
+        },
+        {
+            "value": 25,
+            "name": "Mercedes-AMG GT3 2020"
+        },
+        {
+            "value": 50,
+            "name": "Alpine A1110 GT4"
+        },
+        {
+            "value": 51,
+            "name": "Aston Martin Vantage GT4"
+        },
+        {
+            "value": 52,
+            "name": "Audi R8 LMS GT4"
+        },
+        {
+            "value": 53,
+            "name": "BMW M4 GT4"
+        },
+        {
+            "value": 55,
+            "name": "Chevrolet Camaro GT4"
+        },
+        {
+            "value": 56,
+            "name": "Ginetta G55 GT4"
+        },
+        {
+            "value": 57,
+            "name": "KTM X-Bow GT4"
+        },
+        {
+            "value": 58,
+            "name": "Maserati MC GT4"
+        },
+        {
+            "value": 59,
+            "name": "McLaren 570S GT4"
+        },
+        {
+            "value": 60,
+            "name": "Mercedes AMG GT4"
+        },
+        {
+            "value": 61,
+            "name": "Porsche 718 Cayman GT4"
+        }
+    ]
+}
