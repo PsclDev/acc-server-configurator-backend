@@ -3,7 +3,7 @@ import { readFileSync, readdirSync } from 'fs';
 
 @Injectable()
 export class ResultsRepository {
-  async getResults(dirPath: string): Promise<any[]> {
+  async getAllResults(dirPath: string): Promise<any[]> {
     const results = [];
     const files = readdirSync(dirPath);
     for (const idx in files) {
@@ -16,6 +16,17 @@ export class ResultsRepository {
     }
 
     return results;
+  }
+
+  async getSingleResult(dirPath: string, fileName: string): Promise<any> {
+    const files = readdirSync(dirPath);
+    console.log(files);
+    const file = files.filter((x) => x === fileName);
+
+    const fileData = readFileSync(`${dirPath}/${file}`, 'utf-8');
+    const cleanedJson = await this.correctJsonFile(fileData);
+    const json = JSON.parse(cleanedJson);
+    return { name: fileName, data: json };
   }
 
   private async correctJsonFile(fileData: string): Promise<string> {

@@ -8,17 +8,13 @@ export class ResultsService {
 
   private dirPath = process.env.SERVER_RESULTS_PATH;
 
-  async getResults(): Promise<any[]> {
+  async getAllResults(): Promise<any[]> {
     const results = [];
-    const resultsData = await this.resultsRepo.getResults(this.dirPath);
+    const resultsData = await this.resultsRepo.getAllResults(this.dirPath);
     for (const idx in resultsData) {
       const unformattedResult = resultsData[idx];
       const unformattedData = unformattedResult.data;
       const unformattedSessionResult = unformattedData.sessionResult;
-      const unformattedLaps = unformattedData.laps;
-      const unformattedPenalties = unformattedData.penalties.concat(
-        unformattedData.post_race_penalties,
-      );
 
       const result = {
         name: await this.getTitle(
@@ -40,11 +36,6 @@ export class ResultsService {
             String(unformattedSessionResult.bestSplits[2]),
           ),
         },
-        cars: await this.getCarsArray(
-          unformattedSessionResult.leaderBoardLines,
-          unformattedLaps,
-          unformattedPenalties,
-        ),
       };
 
       results.push(result);
@@ -116,18 +107,20 @@ export class ResultsService {
     return formattedString;
   }
 
-  private async getCarsArray(
-    sessionResults: any,
-    laps: any,
-    penalties: any,
-  ): Promise<any[]> {
+  public async getCarsArray(filename: string): Promise<any[]> {
     const carArr = [];
 
-    for (const carIdx in sessionResults) {
-      const carObj = sessionResults[carIdx];
+    const resultData = await this.resultsRepo.getSingleResult(
+      this.dirPath,
+      filename,
+    );
+    const unformattedData = resultData.data;
+    const sessionResult = unformattedData.sessionResult;
+
+    for (const carIdx in sessionResult) {
+      const carObj = sessionResult[carIdx];
       const carDetails = carObj.car;
       const carTiming = carObj.timing;
-      const carDrivers = carDetails.drivers;
 
       const car = {
         id: carDetails.carId,
@@ -143,9 +136,6 @@ export class ResultsService {
         totalTime: await this.getTimeValueAsString(carTiming.totalTime),
         lapCount: carTiming.lapCount,
         missingMandatoryPitstop: carObj.missingMandatoryPitstop,
-        drivers: await this.getDriversArray(carDrivers),
-        laps: await this.getLapsArray(laps),
-        penalties: await this.getPenaltyArray(penalties),
       };
 
       carArr.push(car);
