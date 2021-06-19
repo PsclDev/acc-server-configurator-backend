@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get, ParseIntPipe, UseGuards } from '@nestjs/common';
 import { ResultsService } from './results.service';
 import { AuthGuard } from '@nestjs/passport';
 import { Param } from '@nestjs/common';
@@ -17,23 +17,26 @@ export class ResultsController {
   async getResultCars(
     @Param('sessionName') sessionName: string,
   ): Promise<any[]> {
-    console.log(sessionName);
-    return [];
+    return await this.resultsService.getCarsArray(sessionName);
   }
 
-  @Get('/:sessionName/laps')
+  @Get('/:sessionName/:carId/laps')
   async getResultLaps(
     @Param('sessionName') sessionName: string,
+    @Param('carId', ParseIntPipe) carId: number,
   ): Promise<any[]> {
     console.log(sessionName);
+    console.log(carId);
     return [];
   }
 
-  @Get('/:sessionName/penalties')
+  @Get('/:sessionName/:carId/penalties')
   async getResultPenalties(
     @Param('sessionName') sessionName: string,
+    @Param('carId', ParseIntPipe) carId: number,
   ): Promise<any[]> {
     console.log(sessionName);
+    console.log(carId);
     return [];
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { readFileSync, readdirSync } from 'fs';
 
 @Injectable()
@@ -20,8 +20,9 @@ export class ResultsRepository {
 
   async getSingleResult(dirPath: string, fileName: string): Promise<any> {
     const files = readdirSync(dirPath);
-    console.log(files);
-    const file = files.filter((x) => x === fileName);
+    const file = files.filter((x) => x === fileName)[0];
+
+    if (file === undefined) throw new NotFoundException('Result not found');
 
     const fileData = readFileSync(`${dirPath}/${file}`, 'utf-8');
     const cleanedJson = await this.correctJsonFile(fileData);

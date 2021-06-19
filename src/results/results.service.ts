@@ -115,17 +115,18 @@ export class ResultsService {
       filename,
     );
     const unformattedData = resultData.data;
-    const sessionResult = unformattedData.sessionResult;
+    const sessionLeaderboard = unformattedData.sessionResult.leaderBoardLines;
 
-    for (const carIdx in sessionResult) {
-      const carObj = sessionResult[carIdx];
+    for (const carIdx in sessionLeaderboard) {
+      const carObj = sessionLeaderboard[carIdx];
       const carDetails = carObj.car;
       const carTiming = carObj.timing;
+      const carDrivers = carDetails.drivers;
 
       const car = {
         id: carDetails.carId,
         raceNumber: carDetails.raceNumber,
-        name: await this.getCarNameByIndex(carDetails.carModel),
+        name: await this.getCarModelByIndex(carDetails.carModel),
         teamName: carDetails.teamName,
         bestLap: await this.getTimeValueAsString(carTiming.bestLap),
         bestSplits: {
@@ -136,6 +137,9 @@ export class ResultsService {
         totalTime: await this.getTimeValueAsString(carTiming.totalTime),
         lapCount: carTiming.lapCount,
         missingMandatoryPitstop: carObj.missingMandatoryPitstop,
+        drivers: await this.getDriversArray(carDrivers),
+        laps: [],
+        penalties: [],
       };
 
       carArr.push(car);
@@ -144,7 +148,7 @@ export class ResultsService {
     return carArr;
   }
 
-  private async getCarNameByIndex(index: number): Promise<string> {
+  private async getCarModelByIndex(index: number): Promise<string> {
     const car = carList.filter((car) => car.value === index);
     return car[0].name;
   }
@@ -168,7 +172,7 @@ export class ResultsService {
     return driverArr;
   }
 
-  private async getLapsArray(laps: any): Promise<any[]> {
+  public async getLapsArray(laps: any): Promise<any[]> {
     const lapsArr = [];
 
     for (const lapIdx in laps) {
