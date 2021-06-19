@@ -107,12 +107,12 @@ export class ResultsService {
     return formattedString;
   }
 
-  public async getCarsArray(filename: string): Promise<any[]> {
+  public async getCarsArray(sessionName: string): Promise<any[]> {
     const carArr = [];
 
     const resultData = await this.resultsRepo.getSingleResult(
       this.dirPath,
-      filename,
+      sessionName,
     );
     const unformattedData = resultData.data;
     const sessionLeaderboard = unformattedData.sessionResult.leaderBoardLines;
@@ -172,8 +172,17 @@ export class ResultsService {
     return driverArr;
   }
 
-  public async getLapsArray(laps: any): Promise<any[]> {
+  public async getLapsArray(
+    sessionName: string,
+    carId: number,
+  ): Promise<any[]> {
     const lapsArr = [];
+
+    const resultData = await this.resultsRepo.getSingleResult(
+      this.dirPath,
+      sessionName,
+    );
+    const laps = resultData.data.laps.filter((lap) => lap.carId === carId);
 
     for (const lapIdx in laps) {
       const lapJson = laps[lapIdx];
@@ -195,8 +204,19 @@ export class ResultsService {
     return lapsArr;
   }
 
-  private async getPenaltyArray(penalties: any): Promise<any[]> {
+  public async getPenaltyArray(
+    sessionName: string,
+    carId: number,
+  ): Promise<any[]> {
     const penaltyArr = [];
+
+    const resultData = await this.resultsRepo.getSingleResult(
+      this.dirPath,
+      sessionName,
+    );
+    const penalties = resultData.data.penalties.filter(
+      (penalty) => penalty.carId === carId,
+    );
 
     for (const penaltyIdx in penalties) {
       const penaltyJson = penalties[penaltyIdx];

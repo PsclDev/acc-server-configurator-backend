@@ -25,9 +25,7 @@ export class ResultsController {
     @Param('sessionName') sessionName: string,
     @Param('carId', ParseIntPipe) carId: number,
   ): Promise<any[]> {
-    console.log(sessionName);
-    console.log(carId);
-    return [];
+    return await this.resultsService.getLapsArray(sessionName, carId);
   }
 
   @Get('/:sessionName/:carId/penalties')
@@ -35,8 +33,6 @@ export class ResultsController {
     @Param('sessionName') sessionName: string,
     @Param('carId', ParseIntPipe) carId: number,
   ): Promise<any[]> {
-    console.log(sessionName);
-    console.log(carId);
-    return [];
+    return await this.resultsService.getPenaltyArray(sessionName, carId);
   }
 }
