@@ -17,6 +17,7 @@ export class ResultsService {
       const unformattedSessionResult = unformattedData.sessionResult;
 
       const result = {
+        id: unformattedResult.name,
         name: await this.getTitle(
           unformattedResult.name,
           unformattedData.trackName,
